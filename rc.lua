@@ -626,8 +626,13 @@ awful.rules.rules = {
       border_width = beautiful.border_width,
       border_color = beautiful.border_normal }
     },
+    { rule = { instance = "plugin-container" },
+     properties = { floating = true } },
+    { rule = { instance = "exe" },
+     properties = { floating = true } },
     { rule = { class = "ROX-Filer" },   properties = { floating = true } },
     { rule = { class = "Chromium-browser" },   properties = { floating = false } },
+    { rule = { class = "Chromium" },   properties = { floating = false } },
     { rule = { class = "Google-chrome" },   properties = { floating = false } },
     { rule = { class = "Firefox" },   properties = { floating = false } },
 }

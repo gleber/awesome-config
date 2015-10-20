@@ -561,6 +561,7 @@ clientkeys = awful.util.table.join(
     end),
     awful.key({ modkey,           }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "s",      function (c) c.sticky = not c.sticky          end),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "m",
         function (c)
@@ -635,6 +636,12 @@ awful.rules.rules = {
     { rule = { class = "Chromium" },   properties = { floating = false } },
     { rule = { class = "Google-chrome" },   properties = { floating = false } },
     { rule = { class = "Firefox" },   properties = { floating = false } },
+    { rule = { instance = "crx_nckgahadagoaajjgafhacjanaoiihapd" },
+               properties = { floating = true },
+               callback = function(c)
+                   -- Show to titlebar else you may not know who you're talking with.
+                   awful.titlebar.add(c, { modkey = modkey })
+               end },
 }
 -- }}}
 
